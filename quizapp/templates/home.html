@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <!-- Welcome Message -->
+    {% if user.is_authenticated %}
+    <h2 class="display-4 mb-4">Welcome {{ user.username }} to the <span class="highlight-text">Python</span> Quiz Website!</h2>
+    {% else %}
+    <h2 class="display-4 mb-4">Welcome to the <span class="highlight-text">Python</span> Quiz Website!</h2>
+    <p>Vous n'êtes pas encore connecté. Veuillez vous connecter pour accéder aux quiz.</p>
+    {% endif %}
+
+    <!-- Home Image -->
+    <img src="{% static 'home.png' %}" alt="Home" class="img-fluid mb-4">
+
+    <!-- Description -->
+    <p class="lead">Testez vos connaissances avec des quizs interactifs. Commencez dès maintenant et améliorez vos compétences python!</p>
+
+    <!-- Conditional Content Based on Authentication -->
+    
+    {% if user.is_authenticated %}
+    
+    <form method="post" action="{% url 'selectlevel' %}" id="quiz-form">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-lg highlight-btn" id="submit-btn" >Choisir le Niveau</button>
+    </form>
+
+        {% else %}
+        <form method="post" action="{% url 'login' %}" id="quiz-form">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-lg highlight-btn" id="submit-btn" >Se Connecter</button>
+        </form>
+
+    {% endif %}
+</div>
+{% endblock %}

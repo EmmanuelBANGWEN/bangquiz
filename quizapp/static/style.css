@@ -1,0 +1,146 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(255, 255, 255, 0.8); /* Légèrement blanc avec transparence */
+
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles pour la navbar */
+
+
+
+
+/* Container principal */
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.3); /* Légèrement blanc avec plus de transparence (0.3) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Réduire la taille du texte pour le titre (h2), les paragraphes (p) et les liens (a) */
+.container h2 {
+    color: white;
+    font-size: 1.8rem; /* Taille réduite pour le titre */
+}
+
+.container p {
+    color: white;
+    font-size: 1rem; /* Taille réduite pour le texte des paragraphes */
+}
+
+.container a {
+    color: white;
+    font-size: 1.2rem; /* Taille réduite pour les liens */
+}
+
+
+/* Appliquez une couleur jaune au mot Python */
+.highlight-text {
+    color: #FFD43B; /* Changez la couleur selon votre préférence */
+}
+/* Style pour le bouton "Se Connecter" */
+.highlight-btn {
+    background-color: #FFD43B; /* Jaune officiel du logo Python */
+    color: black !important; /* Assurez-vous que le texte soit noir */
+    border: none; /* Retirer les bordures si nécessaire */
+    transition: transform 0.1s ease, box-shadow 0.1s ease; /* Transition pour l'effet de clic */
+
+}
+
+.highlight-btn:hover {
+    background-color: #FFD73B; /* Jaune légèrement plus foncé pour l'effet survol */
+    color: white; /* Change la couleur du texte quand survolé */
+}
+
+
+
+
+/* Titres */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mb-3 {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    background-color: #FFD43B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FFD43B;
+}
+
+/* Liens */
+a {
+    color: #FFD43B;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+
+
+/* Effet de bouton au survol */
+button:active {
+    transform: scale(0.98);
+}
+
+
+.question-container {
+    margin-bottom: 20px;
+    transition: opacity 0.5s ease;
+}
+
+#next-btn, #submit-btn {
+    transition: background-color 0.3s;
+}
+
+#next-btn:hover, #submit-btn:hover {
+    background-color: #FFD43B;
+}

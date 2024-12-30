@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>{% block title %}BangQuiz{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        /* Background image for the whole page */
+        body {
+            background-image: url("{% static 'background.png' %}");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Python logo animation */
+        .python-logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 70px;
+            height: 50px;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Social media icons */
+        .social-media img {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+        }
+
+     /* Header Styling */
+     .header {
+    color: white;
+    padding: 10px 20px; /* Ajuste le padding comme tu veux */
+    text-align: center; /* Centre le texte dans le header */
+
+    /* Flexbox pour centrer le contenu */
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+    clear: both;
+
+    background-color: rgba(255, 255, 255, 0.2); /* Légèrement blanc avec transparence */
+    
+    box-sizing: border-box; /* Assure que le padding est pris en compte dans la taille totale */
+
+    width: 50%; /* Réduit la largeur du header, ajustez selon vos besoins */
+    max-width: 600px; /* Vous pouvez définir une largeur maximale pour le header */
+    border-radius: 25px; /* Arrondit les coins du header */
+
+    margin: 0 auto; /* Centrer horizontalement */
+}
+
+        .nav-item {
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+    /* Pour les petits écrans (mobiles) */
+    @media (max-width: 567px) {
+    .nav-item {
+        font-size: 0.6rem; /* Réduit la taille de la police sur mobile */
+        padding: 4px 12px; /* Ajuste le padding pour les petits écrans */
+        background-color: rgba(225, 225, 211, 0.2); /* Légèrement blanc avec transparence */
+
+    }
+}
+
+        /* Footer Styling */
+        .footer {
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    clear: both;
+    text-align: center; /* Center the footer content */
+    background-color: transparent; /* Make the footer background transparent */
+}
+
+        /* Ensure footer stays at the bottom if content is small */
+        .content-wrapper {
+            min-height: 100vh; /* Ensure that the content fills at least the height of the screen */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Social media links at the bottom */
+        .footer-content {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Python logo animation -->
+        <img src="{% static 'python.png' %}" alt="Python Logo" class="python-logo">
+
+        <!-- Header Section -->
+        <header class="header">
+            <nav class="nav-list d-flex justify-content-center"> <!-- Center the nav items -->
+                <a href="{% url 'home' %}" class="nav-item">
+                    <i class="bi bi-house-door-fill"></i> Home
+                </a>
+                {% if user.is_authenticated %}
+        
+                <a href="{% url 'selectlevel' %}" class="nav-item">
+                    <i class="bi bi-journal-check"></i> Quiz
+                </a>
+                {% endif %}
+        
+                <a href="{% url 'community' %}" class="nav-item">
+                    <i class="bi bi-person-fill"></i> Community
+                </a>
+        
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="nav-item">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}" class="nav-item">
+                    <i class="bi bi-box-arrow-in-right"></i> Login
+                </a>
+                <a href="{% url 'register' %}" class="nav-item">
+                    <i class="bi bi-pencil-fill"></i> Register
+                </a>
+                {% endif %}
+        
+            </nav>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="container my-5">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Emmanuel Bangwen. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://cm.linkedin.com/in/emmanuel-bangwen-75091117b" target="_blank">
+                <i class="bi bi-linkedin social-icon"></i> <!-- LinkedIn Icon -->
+            </a>
+            <a href="https://www.instagram.com/t.r.e.b.m.a.l/" target="_blank">
+                <i class="bi bi-instagram social-icon"></i> <!-- Instagram Icon -->
+            </a>
+            <a href="https://github.com/EmmanuelBANGWEN" target="_blank">
+                <i class="bi bi-github social-icon"></i> <!-- GitHub Icon -->
+            </a>
+
+
+            <a href="mailto:bikoyemmanuel531@gmail.com">
+                <i class="bi bi-envelope social-icon"></i> <!-- Email Icon -->
+            </a>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'main.js' %}"></script>
+</body>
+</html>
