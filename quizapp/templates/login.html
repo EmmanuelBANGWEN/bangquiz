@@ -18,11 +18,19 @@
         <h2>Se connecter</h2>
         <form method="POST">
             {% csrf_token %}
-            <div class="mb-3">
-                {{ form.username.label }}: {{ form.username }}
+            <div class="form-outline mb-4 position-relative">
+                <label class="form-label" for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-control form-control-lg" placeholder="Enter your username" required>
+                <i class="bi bi-person-circle position-absolute" style="top: 70%; right: 10px; transform: translateY(-50%);"></i>
+                <div class="invalid-feedback" data-sd-feedback="username:required">Username is required.</div>
+                <div class="invalid-feedback" data-sd-feedback="username:invalid">Username is not valid.</div>
             </div>
-            <div class="mb-3">
-                {{ form.password.label }}: {{ form.password }}
+            <!-- Password input -->
+            <div class="form-outline mb-4 position-relative">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Enter your password" required>
+                <i class="bi bi-lock-fill position-absolute" style="top: 70%; right: 10px; transform: translateY(-50%);"></i>
+                <div class="invalid-feedback" data-sd-feedback="password:required">Password is required.</div>
             </div>
             <button type="submit" class="btn btn-primary">Se connecter</button>
         </form>

@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h3 class="text-center">Questions pour le niveau : {{ level.name }}</h3>
+        <!-- <h3 class="text-center">Questions pour le niveau : {{ level.name }}</h3> -->
         <form method="post" action="{% url 'result' %}" id="quiz-form">
             {% csrf_token %}
             <div id="questions-container">

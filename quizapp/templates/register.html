@@ -34,17 +34,26 @@
                 {{ form.username.label }}: {{ form.username }}
             </div>
             <div class="mb-3">
-                {{ form.phone_number.label }}: {{ form.phone_number }}
+                {{ form.first_name.label }}: {{ form.first_name }}
+            </div>
+           
+            <div class="mb-3">
+                {{ form.last_name.label }}: {{ form.last_name }}
             </div>
             <div class="mb-3">
                 {{ form.country.label }}: {{ form.country }}
             </div>
             <div class="mb-3">
-                {{ form.password1.label }}: {{ form.password1 }}
+                {{ form.email.label }}: {{ form.email }}
             </div>
             <div class="mb-3">
-                {{ form.password2.label }}: {{ form.password2 }}
+                {{ form.password.label }}: {{ form.password }}
             </div>
+            <div class="mb-3">
+                {{ form.repeatpassword.label }}: {{ form.repeatpassword }}
+            </div>
+
+
             <button type="submit" class="btn btn-primary">S'inscrire</button>
         </form>
         <p>Déjà un compte? <a href="{% url 'login' %}">Se connecter</a></p>
