@@ -108,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'quizapp.CustomUser'  # Remplacez 'votre_app' par le nom de votre application
 
 
 # Internationalization
