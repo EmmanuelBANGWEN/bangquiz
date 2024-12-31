@@ -25,21 +25,31 @@ def register(request):
     else:
         form = RegistrationForms()
     return render(request, 'register.html', {'form': form})
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
 def login_view(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
-            username = request.POST["username"]
-            password = request.POST["password"]
+            username = request.POST.get("username")  # Utilisation de .get() pour éviter l'exception
+            password = request.POST.get("password")  # Utilisation de .get() pour éviter l'exception
+
+            # Vérification que les champs sont remplis
+            if not username or not password:
+                messages.error(request, "Nom d'utilisateur et mot de passe sont requis.")
+                return render(request, 'login.html')
+
+            # Tentative de connexion
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-            
                 return redirect('home')
             else:
-                return render(request, 'login.html', {})
+                messages.error(request, "Nom d'utilisateur ou mot de passe incorrect.")
+                return render(request, 'login.html')
         else:
-            return render(request, 'login.html', {})
+            return render(request, 'login.html')
     else:
         return redirect('home')
 
@@ -256,7 +266,6 @@ def selectlevel(request):
 #     {"id": 2, "answer": "B) output()", "is_correct": False, "question_id": 1},
 #     # ... Ajoutez ici toutes les autres réponses
 # ]
-
 def start(request, level_id):
     # Filtrer les questions en fonction du niveau choisi
     filtered_questions = [q for q in questions if q['level_id'] == level_id]
@@ -274,6 +283,7 @@ def start(request, level_id):
         'questions_with_answers': questions_with_answers,
         'level_name': level_name
     })
+
 
 
 def result(request):

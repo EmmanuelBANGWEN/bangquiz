@@ -19,23 +19,24 @@
         <form method="POST">
             {% csrf_token %}
             <div class="form-outline mb-4 position-relative">
-                <label class="form-label" for="username">Username</label>
-                <input type="text" id="username" name="username" class="form-control form-control-lg" placeholder="Enter your username" required>
+                <label class="form-label" for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" class="form-control form-control-lg" placeholder="Entrez votre nom d'utilisateur" required>
                 <i class="bi bi-person-circle position-absolute" style="top: 70%; right: 10px; transform: translateY(-50%);"></i>
-                <div class="invalid-feedback" data-sd-feedback="username:required">Username is required.</div>
-                <div class="invalid-feedback" data-sd-feedback="username:invalid">Username is not valid.</div>
+                <div class="invalid-feedback" data-sd-feedback="username:required">Le nom d'utilisateur est requis.</div>
+                <div class="invalid-feedback" data-sd-feedback="username:invalid">Nom d'utilisateur invalide.</div>
             </div>
-            <!-- Password input -->
+            <!-- Champ mot de passe -->
             <div class="form-outline mb-4 position-relative">
-                <label class="form-label" for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Enter your password" required>
+                <label class="form-label" for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Entrez votre mot de passe" required>
                 <i class="bi bi-lock-fill position-absolute" style="top: 70%; right: 10px; transform: translateY(-50%);"></i>
-                <div class="invalid-feedback" data-sd-feedback="password:required">Password is required.</div>
+                <div class="invalid-feedback" data-sd-feedback="password:required">Le mot de passe est requis.</div>
             </div>
             <button type="submit" class="btn btn-primary">Se connecter</button>
         </form>
         <p>Pas encore de compte? <a href="{% url 'register' %}">S'inscrire</a></p>
     </div>
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{% static 'main.js' %}"></script>
 
