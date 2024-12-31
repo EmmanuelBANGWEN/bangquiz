@@ -23,13 +23,9 @@
 
         {% csrf_token %}
         <div id="questions-container">
-            {% for level in levels %}
-    {% if level.id %}
-        <a href="{% url 'start' level_id=level.id %}" class="btn btn-primary mb-3">{{ level.name }}</a>
-    {% else %}
-        <p>Le niveau n'a pas d'ID valide.</p>
-    {% endif %}
-{% endfor %}
+            {% for level_id, level_name in levels.items %}
+            <a href="{% url 'start' level_id=level_id %}" class="btn btn-primary mb-3">{{ level_name }}</a>
+        {% endfor %}
 
         </div>
     </form>

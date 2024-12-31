@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # from .models import CustomUser
 from django.contrib.auth.models import User
 
-from django_countries.fields import CountryField  # Importer CountryField
+# from django_countries.fields import CountryField  # Importer CountryField
 
 
 # class UserForm(UserCreationForm):
@@ -43,10 +43,10 @@ class RegistrationForms(forms.ModelForm):
                                 required=True, 
                                 widget=forms.TextInput(attrs={"type":"text", "id":"LaststName", "class":"form-control",  "placeholder":"Last Name"}) )
     
-    country = CountryField(blank_label='(Select your country)').formfield(
-                                required=True, 
-                                help_text='', 
-                                widget=forms.Select(attrs={'class': 'form-control'}))
+    # country = CountryField(blank_label='(Select your country)').formfield(
+    #                             required=True, 
+    #                             help_text='', 
+    #                             widget=forms.Select(attrs={'class': 'form-control'}))
 
 
     email = forms.EmailField(label="Email", 

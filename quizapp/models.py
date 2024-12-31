@@ -6,32 +6,32 @@ from django.db import models
   #  def __str__(self):
   #      return self.name
     
-class Level(models.Model):
-    name = models.CharField(max_length=100)
+# class Level(models.Model):
+#     name = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
-class Question(models.Model):
-    #category = models.ForeignKey(Category, related_name='questions', on_delete=models.CASCADE)
-    level = models.ForeignKey(Level, on_delete=models.CASCADE)
+# class Question(models.Model):
+#     #category = models.ForeignKey(Category, related_name='questions', on_delete=models.CASCADE)
+#     level = models.ForeignKey(Level, on_delete=models.CASCADE)
 
-    question = models.CharField(max_length=255)
+#     question = models.CharField(max_length=255)
 
-    def __str__(self):
-        return self.question
+#     def __str__(self):
+#         return self.question
 
-class Answer(models.Model):
-    question = models.ForeignKey(Question, related_name='answers', on_delete=models.CASCADE)
-    answer = models.CharField(max_length=255)
-    is_correct = models.BooleanField(default=False)
+# class Answer(models.Model):
+#     question = models.ForeignKey(Question, related_name='answers', on_delete=models.CASCADE)
+#     answer = models.CharField(max_length=255)
+#     is_correct = models.BooleanField(default=False)
 
-    def __str__(self):
-        return self.answer
+#     def __str__(self):
+#         return self.answer
 
 
 #from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 
 
