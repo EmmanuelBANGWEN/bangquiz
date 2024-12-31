@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'quiz.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME':'bangquiz',
-#         'USER':'trebmal',
-#         'PASSWORD':'manulove',
-#         'HOST':'localhost',
-#         'PORT':'4444',
+#         'NAME':'',
+#         'USER':'',
+#         'PASSWORD':'',
+#         'HOST':'',
+#         'PORT':'',
 #         # 'OPTIONS': {
 #         #     'options': '-c timezone=UTC',
 #         # },
